@@ -1,0 +1,12 @@
+Prerequisites :
+
+1. Nodejs
+2. yarn, webpack, webpack-dev-server
+
+Installation :
+
+1. yarn -> Install dependencies
+
+Development :
+1. npm start
+2. go to http://localhost:8888/ 

@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app="boilerplateApp">
+<head>
+    <title>Symbio</title>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="utf-8" http-equiv="encoding">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+    <base href="/">
+    <link rel="stylesheet" href="assets/css/style.css" />
+    
+</head>
+<body>
+    <common-directive></common-directive>
+    <top-menu></top-menu>
+
+    <div class="container-fluid">
+        <!-- start dynamic content -->
+        <div ui-view=""></div>
+        <!-- end dynamic content -->
+    </div>
+
+    <script src="angular.bundle.js"></script>
+    <script src="vendors.bundle.js"></script>
+    <script src="app.bundle.js"></script>
+</body>
+</html>

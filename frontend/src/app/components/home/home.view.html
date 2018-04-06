@@ -1,0 +1,91 @@
+﻿<div class="module" id="homeView">
+    <div class="row title">
+        <div class="col-md-12">
+            {{vm.title}}
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-3">
+            <label for="select_game">Select a game in the list :</label>
+        </div>
+        <div class="col-6">
+            <select ng-options="game as game.name for game in vm.randomGameList track by game.appid" 
+            ng-model="vm.selectedGame" ng-change="vm.selectedGameChanged()" class="form-control" id="select_game"></select>
+        </div>
+        <div class="col-3">
+            <button class="btn btn-outline-primary btn-lg" ng-click="vm.getRandomGames()">Randomize !</button>
+        </div>
+        
+    </div>
+
+    <div class="row gameInfo" ng-show="vm.selectedGame.type">
+        <div class="col-12">
+            <div class="row">
+                <div class="col-12 title">
+                    <h4>{{vm.selectedGame.name}} <small>
+                        <span ng-repeat="publisher in vm.selectedGame.publishers">{{publisher}}{{$last ? '' : ', '}}</span>
+                    </small></h4>
+                </div>
+            </div>
+            <div class="row extraInfo">
+                <div class="col-3 genres">
+                    <span ng-repeat="genre in vm.selectedGame.genres">{{genre.description}}{{$last ? '' : ', '}}</span>
+                </div>
+                <div class="col-3 metacritic">
+                    <div class="metacriticScore" ng-show="vm.selectedGame.metacritic" ng-class="{'bad':vm.selectedGame.metacritic.score<40,'average':vm.selectedGame.metacritic.score>=40&&vm.selectedGame.metacritic.score<60,'good':vm.selectedGame.metacritic.score>=60}">
+                        <a href="{{vm.selectedGame.metacritic.url}}" target="_blank">{{vm.selectedGame.metacritic.score}}</a>
+                    </div>
+                </div>
+                <div class="col-3 releaseDate">
+                        <i class="fa fa-fw fa-calendar"></i>{{vm.selectedGame.release_date.date}}
+                </div>
+                <div class="col-3 price">
+                    <i class="fa fa-fw fa-eur"></i>
+                    <span ng-show="vm.selectedGame.is_free">FREE !</span>
+                    <span ng-show="!vm.selectedGame.is_free">{{vm.selectedGame.price_overview.final/100|round:2}}{{vm.selectedGame.price_overview.currency}}</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-10 details">
+                    <div class="row description">
+                        <div class="col-12">
+                            <span ng-bind-html="vm.selectedGame.detailed_description | trust"></span>
+                        </div>
+                    </div>
+                    <div class="row screenshots">
+                        <div class="col-3" ng-repeat="screenshot in vm.selectedGame.screenshots|limitTo:4">
+                            <a href="{{screenshot.path_full}}" target="_blank">
+                                <img src="{{screenshot.path_thumbnail}}"/>
+                            </a>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="col-2 youtube">
+                    <div class="row">
+                        <div class="col-12 title">
+                            Twitch stream
+                        </div>
+                        <div class="col-12" id="twitchstream">
+                            
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 title">
+                            <h4>Youtube videos</h4>
+                        </div>
+                    </div>
+                    <div class="row ytvideo" ng-repeat="video in vm.selectedGame.YTVideos">
+                        <div class="col-12">
+                            <iframe width="300" height="180" src="https://www.youtube.com/embed/"+video.id.videoId>
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+         
+        </div>
+       
+    </div>
+        
+</div>

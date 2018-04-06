@@ -1,0 +1,4 @@
+[MESSAGES CONTROL]
+disable=C0103,C0301,C0111
+[TYPECHECK]
+ignored-classes=Resource

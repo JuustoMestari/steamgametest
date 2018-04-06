@@ -1,0 +1,64 @@
+@import 'main';
+
+$extra_info_height : 50px;
+
+#homeView {
+    table {
+        tbody,thead {
+            td,th  {
+                text-align:left;
+            }
+        }
+    }
+    div.row.gameInfo{
+        div.row.extraInfo{
+            > div{
+                line-height: $extra_info_height;
+            }
+            div.metacriticScore{
+                width:$extra_info_height;
+                height:$extra_info_height;
+                text-align:center;
+                line-height:46px;
+                border:2px solid black;
+                &.bad{
+                    background-color:red;
+                }
+                &.average{
+                    background-color:orange
+                }
+                &.good{
+                    background-color:green;
+                }
+                a{
+                    color:white;
+                    font-size:20px;
+                    text-decoration: none;
+                }
+                
+            }
+            div.price{
+                font-weight:bold;
+            }
+        }
+       
+        div.description{
+            max-height:400px;
+            overflow:auto;
+        }
+        div.screenshots{
+            > div{
+                padding:5px;
+                img {
+                    max-width:95%;
+                    border:1px solid black;
+                }
+            }
+        }
+        div.youtube{
+           div.title{
+               text-align:center;
+           }
+        }
+    }
+}

@@ -1,0 +1,19 @@
+//Global variables and styles
+
+//COLORS
+$color_green           : #009d58;
+
+div.module {
+    margin-top:50px;
+    div.row {
+        &.title{
+            font-size:3rem;
+            text-align:center;
+        }
+    }
+}
+
+button.btn{
+    border-radius:unset;
+    padding:5px;
+}
