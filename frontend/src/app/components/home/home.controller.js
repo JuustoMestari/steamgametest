@@ -63,15 +63,12 @@
 
                     vm.asyncHomeService.getTwitchStream(vm.selectedGame.name).then(function(results){
                         var streams = results.data.streams;
-                        console.log("STREAM: ",streams[0].channel.name)
+                        console.log(streams);
                         if(streams.length>0){
-                            var options = {
-                                width: 300,
-                                height: 180,
-                                channel: streams[0].channel.name
-                            }
-                            var player = new Twitch.Embed("twitchstream", options);
-                            console.log("TWITCH !!!");
+                            
+                            vm.selectedGame.streamInfo={};
+                            vm.selectedGame.streamInfo.viewers = streams[0].viewers;
+                            vm.selectedGame.streamInfo.channel = streams[0].channel.name;
                         }
                     }).catch(function(error){
                     });

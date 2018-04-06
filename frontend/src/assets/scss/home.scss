@@ -55,10 +55,9 @@ $extra_info_height : 50px;
                 }
             }
         }
-        div.youtube{
-           div.title{
-               text-align:center;
-           }
+        div.media{
+            flex-direction:column;
+            align-items: center;
         }
     }
 }

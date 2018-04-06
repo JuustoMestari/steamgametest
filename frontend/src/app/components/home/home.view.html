@@ -32,7 +32,7 @@
                     <span ng-repeat="genre in vm.selectedGame.genres">{{genre.description}}{{$last ? '' : ', '}}</span>
                 </div>
                 <div class="col-3 metacritic">
-                    <div class="metacriticScore" ng-show="vm.selectedGame.metacritic" ng-class="{'bad':vm.selectedGame.metacritic.score<40,'average':vm.selectedGame.metacritic.score>=40&&vm.selectedGame.metacritic.score<60,'good':vm.selectedGame.metacritic.score>=60}">
+                    <div class="metacriticScore" ng-show="vm.selectedGame.metacritic" ng-class="{'bad':vm.selectedGame.metacritic.score<40,'average':vm.selectedGame.metacritic.score>=40&&vm.selectedGame.metacritic.score<70,'good':vm.selectedGame.metacritic.score>=70}">
                         <a href="{{vm.selectedGame.metacritic.url}}" target="_blank">{{vm.selectedGame.metacritic.score}}</a>
                     </div>
                 </div>
@@ -46,7 +46,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-10 details">
+                <div class="col-lg-10 col-md-12 col-sm-12 details">
                     <div class="row description">
                         <div class="col-12">
                             <span ng-bind-html="vm.selectedGame.detailed_description | trust"></span>
@@ -59,15 +59,17 @@
                             </a>
                         </div>
                     </div>
-                    
                 </div>
-                <div class="col-2 youtube">
-                    <div class="row">
+                <div class="col-lg-2 col-md-12 col-sm-12 media">
+                    <div class="row" ng-show="vm.selectedGame.streamInfo">
                         <div class="col-12 title">
-                            Twitch stream
+                            <h4>Popular twitch stream</h4>
                         </div>
-                        <div class="col-12" id="twitchstream">
-                            
+                    </div>
+                    <div class="row" ng-show="vm.selectedGame.streamInfo">
+                        <div class="col-12">
+                            <i class="fa fa-users fa-fw"></i><span class="twitchCounter">{{vm.selectedGame.streamInfo.viewers}} viewers</span>
+                            <a href="http://twitch.tv/{{vm.selectedGame.streamInfo.channel}}" target="_blank">{{vm.selectedGame.streamInfo.channel}}</a>
                         </div>
                     </div>
                     <div class="row">
@@ -77,8 +79,7 @@
                     </div>
                     <div class="row ytvideo" ng-repeat="video in vm.selectedGame.YTVideos">
                         <div class="col-12">
-                            <iframe width="300" height="180" src="https://www.youtube.com/embed/"+video.id.videoId>
-                            </iframe>
+                            <iframe width="300" height="180" src="https://www.youtube.com/embed/"+video.id.videoId></iframe>
                         </div>
                     </div>
                 </div>

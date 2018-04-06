@@ -1,4 +1,5 @@
-# pip install flask flask-cors jsonify google-api-python-client
+# pip install requests flask flask-cors jsonify google-api-python-client
+
 import requests
 from flask import Flask, jsonify, request
 from flask_cors import CORS
