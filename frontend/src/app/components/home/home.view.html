@@ -28,18 +28,18 @@
                 </div>
             </div>
             <div class="row extraInfo">
-                <div class="col-3 genres">
+                <div class="col-lg-3 col-md-3 col-sm-6 genres">
                     <span ng-repeat="genre in vm.selectedGame.genres">{{genre.description}}{{$last ? '' : ', '}}</span>
                 </div>
-                <div class="col-3 metacritic">
+                <div class="col-lg-3 col-md-3 col-sm-6 metacritic">
                     <div class="metacriticScore" ng-show="vm.selectedGame.metacritic" ng-class="{'bad':vm.selectedGame.metacritic.score<40,'average':vm.selectedGame.metacritic.score>=40&&vm.selectedGame.metacritic.score<70,'good':vm.selectedGame.metacritic.score>=70}">
                         <a href="{{vm.selectedGame.metacritic.url}}" target="_blank">{{vm.selectedGame.metacritic.score}}</a>
                     </div>
                 </div>
-                <div class="col-3 releaseDate">
+                <div class="col-lg-3 col-md-3 col-sm-6 releaseDate">
                         <i class="fa fa-fw fa-calendar"></i>{{vm.selectedGame.release_date.date}}
                 </div>
-                <div class="col-3 price">
+                <div class="col-lg-3 col-md-3 col-sm-6 price">
                     <i class="fa fa-fw fa-eur"></i>
                     <span ng-show="vm.selectedGame.is_free">FREE !</span>
                     <span ng-show="!vm.selectedGame.is_free">{{vm.selectedGame.price_overview.final/100|round:2}}{{vm.selectedGame.price_overview.currency}}</span>
