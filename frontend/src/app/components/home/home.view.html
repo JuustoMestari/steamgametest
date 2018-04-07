@@ -79,7 +79,7 @@
                     </div>
                     <div class="row ytvideo" ng-repeat="video in vm.selectedGame.YTVideos">
                         <div class="col-12">
-                            <iframe width="300" height="180" src="https://www.youtube.com/embed/"+video.id.videoId></iframe>
+                            <iframe width="300" height="180" src="{{vm.getYTIframe(video.id.videoId)}}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                         </div>
                     </div>
                 </div>

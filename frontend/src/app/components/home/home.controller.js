@@ -3,9 +3,9 @@
 
     angular.module('boilerplateApp').controller('homeController', homeController);
 
-    homeController.$inject = ['$scope','asyncMenuService','asyncLocalService','asyncHomeService'];
+    homeController.$inject = ['$scope','$sce','asyncMenuService','asyncLocalService','asyncHomeService'];
 
-    function homeController($scope,asyncMenuService,asyncLocalService,asyncHomeService) {
+    function homeController($scope,$sce,asyncMenuService,asyncLocalService,asyncHomeService) {
 
         var vm = this;
         vm.asyncHomeService = asyncHomeService;
@@ -90,6 +90,10 @@
 
         vm.getRandomGames = function(){
             getRandomGames(vm.gameQty);
+        }
+
+        vm.getYTIframe=function(videoId){
+            return $sce.trustAsResourceUrl('https://www.youtube.com/embed/'+videoId);
         }
 
         return vm;
